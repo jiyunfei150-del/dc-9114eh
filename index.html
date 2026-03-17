@@ -10,27 +10,17 @@
 
   body {
     font-family: 'Noto Sans SC', 'PingFang SC', sans-serif;
-    background: #0d1117;
-    color: #e6edf3;
+    background: #f5f7fa;
+    color: #1a1d23;
     min-height: 100vh;
-    overflow-x: hidden;
-  }
-
-  /* ── 背景装饰 ── */
-  body::before {
-    content: '';
-    position: fixed; inset: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 20% 10%, rgba(255,180,0,.06) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 80% 90%, rgba(255,100,50,.05) 0%, transparent 60%);
-    pointer-events: none;
   }
 
   /* ── HEADER ── */
   header {
+    background: #fff;
+    border-bottom: 1px solid #e8ecf0;
     text-align: center;
-    padding: 56px 24px 40px;
-    position: relative;
+    padding: 52px 24px 40px;
   }
   .badge {
     display: inline-block;
@@ -42,38 +32,34 @@
     padding: 4px 14px;
     border-radius: 20px;
     margin-bottom: 16px;
-    text-transform: uppercase;
   }
   header h1 {
-    font-size: clamp(26px, 5vw, 44px);
+    font-size: clamp(24px, 4vw, 40px);
     font-weight: 700;
-    background: linear-gradient(135deg, #fcd34d 0%, #f97316 50%, #ef4444 100%);
+    background: linear-gradient(135deg, #d97706 0%, #dc2626 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    line-height: 1.2;
+    line-height: 1.3;
     margin-bottom: 12px;
   }
   header p {
-    color: #8b949e;
+    color: #6b7280;
     font-size: 14px;
     max-width: 560px;
     margin: 0 auto;
-    line-height: 1.7;
+    line-height: 1.8;
   }
 
-  /* ── STATS ── */
   .stats {
     display: flex;
     justify-content: center;
-    gap: 32px;
+    gap: 40px;
     flex-wrap: wrap;
     margin: 32px auto 0;
     max-width: 640px;
   }
-  .stat-item {
-    text-align: center;
-  }
+  .stat-item { text-align: center; }
   .stat-num {
     font-size: 28px;
     font-weight: 700;
@@ -81,29 +67,25 @@
   }
   .stat-label {
     font-size: 12px;
-    color: #8b949e;
+    color: #9ca3af;
     margin-top: 4px;
   }
 
-  /* ── MAIN FLOW ── */
-  .flow-container {
+  /* ── MAIN CONTAINER ── */
+  .main {
     max-width: 960px;
     margin: 0 auto;
-    padding: 0 24px 80px;
+    padding: 48px 24px 80px;
   }
 
-  .flow-section-title {
-    font-size: 13px;
-    font-weight: 600;
-    color: #8b949e;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+  .section-label {
     text-align: center;
-    margin-bottom: 40px;
-  }
-  .flow-section-title span {
-    border-bottom: 1px solid #30363d;
-    padding-bottom: 4px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #9ca3af;
+    margin-bottom: 36px;
+    text-transform: uppercase;
   }
 
   /* ── FLOW STEPS ── */
@@ -111,242 +93,219 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
   }
 
   .step-card {
     width: 100%;
-    max-width: 720px;
-    position: relative;
+    max-width: 700px;
     display: flex;
-    gap: 24px;
-    padding: 28px 32px;
+    gap: 20px;
+    padding: 24px 28px;
     border-radius: 16px;
-    border: 1px solid transparent;
-    transition: transform .3s ease, box-shadow .3s ease;
-    cursor: default;
-    animation: fadeInUp .5s ease both;
+    border: 1.5px solid transparent;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(0,0,0,.06);
+    transition: box-shadow .25s, transform .25s;
+    animation: fadeUp .5s ease both;
   }
   .step-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 20px 60px rgba(0,0,0,.5);
+    box-shadow: 0 8px 32px rgba(0,0,0,.10);
+    transform: translateY(-2px);
   }
-
-  /* per-step colors */
-  .step-card.s1 { background: linear-gradient(135deg, rgba(245,158,11,.12), rgba(30,20,5,.8)); border-color: rgba(245,158,11,.25); animation-delay: .1s; }
-  .step-card.s2 { background: linear-gradient(135deg, rgba(59,130,246,.12), rgba(5,15,30,.8)); border-color: rgba(59,130,246,.25); animation-delay: .2s; }
-  .step-card.s3 { background: linear-gradient(135deg, rgba(168,85,247,.12), rgba(15,5,30,.8)); border-color: rgba(168,85,247,.25); animation-delay: .3s; }
-  .step-card.s4 { background: linear-gradient(135deg, rgba(34,197,94,.12), rgba(5,20,10,.8)); border-color: rgba(34,197,94,.25); animation-delay: .4s; }
+  .step-card.s1 { border-color: #fde68a; animation-delay: .08s; }
+  .step-card.s2 { border-color: #bfdbfe; animation-delay: .16s; }
+  .step-card.s3 { border-color: #ddd6fe; animation-delay: .24s; }
+  .step-card.s4 { border-color: #bbf7d0; animation-delay: .32s; }
 
   .step-icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
+    width: 52px; height: 52px;
+    border-radius: 13px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
     flex-shrink: 0;
-    margin-top: 4px;
+    margin-top: 2px;
   }
-  .s1 .step-icon { background: rgba(245,158,11,.2); }
-  .s2 .step-icon { background: rgba(59,130,246,.2); }
-  .s3 .step-icon { background: rgba(168,85,247,.2); }
-  .s4 .step-icon { background: rgba(34,197,94,.2); }
+  .s1 .step-icon { background: #fef3c7; }
+  .s2 .step-icon { background: #eff6ff; }
+  .s3 .step-icon { background: #f5f3ff; }
+  .s4 .step-icon { background: #f0fdf4; }
 
   .step-body { flex: 1; }
-  .step-number {
-    font-size: 10px;
-    font-weight: 700;
+  .step-num {
+    font-size: 10px; font-weight: 700;
     letter-spacing: 2px;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
-  .s1 .step-number { color: #f59e0b; }
-  .s2 .step-number { color: #3b82f6; }
-  .s3 .step-number { color: #a855f7; }
-  .s4 .step-number { color: #22c55e; }
+  .s1 .step-num { color: #d97706; }
+  .s2 .step-num { color: #2563eb; }
+  .s3 .step-num { color: #7c3aed; }
+  .s4 .step-num { color: #16a34a; }
 
   .step-title {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 700;
-    margin-bottom: 8px;
+    color: #111827;
+    margin-bottom: 7px;
   }
   .step-desc {
     font-size: 13px;
-    color: #8b949e;
-    line-height: 1.7;
-    margin-bottom: 14px;
+    color: #6b7280;
+    line-height: 1.8;
+    margin-bottom: 12px;
   }
-  .step-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-  }
+  .step-tags { display: flex; flex-wrap: wrap; gap: 6px; }
   .tag {
     font-size: 11px;
     padding: 3px 10px;
     border-radius: 20px;
     font-weight: 500;
   }
-  .s1 .tag { background: rgba(245,158,11,.15); color: #fcd34d; border: 1px solid rgba(245,158,11,.2); }
-  .s2 .tag { background: rgba(59,130,246,.15); color: #93c5fd; border: 1px solid rgba(59,130,246,.2); }
-  .s3 .tag { background: rgba(168,85,247,.15); color: #d8b4fe; border: 1px solid rgba(168,85,247,.2); }
-  .s4 .tag { background: rgba(34,197,94,.15); color: #86efac; border: 1px solid rgba(34,197,94,.2); }
+  .s1 .tag { background: #fef9c3; color: #92400e; }
+  .s2 .tag { background: #dbeafe; color: #1e40af; }
+  .s3 .tag { background: #ede9fe; color: #5b21b6; }
+  .s4 .tag { background: #dcfce7; color: #166534; }
 
   /* ── ARROW ── */
-  .arrow-connector {
+  .arrow-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0;
-    margin: 4px 0;
+    margin: 2px 0;
     animation: fadeIn .4s ease both;
   }
-  .arrow-connector:nth-child(2) { animation-delay: .15s; }
-  .arrow-connector:nth-child(4) { animation-delay: .25s; }
-  .arrow-connector:nth-child(6) { animation-delay: .35s; }
-
   .arrow-line {
     width: 2px;
-    height: 36px;
-    background: linear-gradient(to bottom, rgba(255,255,255,.15), rgba(255,255,255,.05));
+    height: 28px;
+    background: linear-gradient(to bottom, #d1d5db, #e5e7eb);
   }
-  .arrow-label {
+  .arrow-pill {
     font-size: 11px;
-    color: #6e7681;
-    margin: -2px 0;
-    background: #0d1117;
-    padding: 2px 10px;
-    border-radius: 10px;
-    border: 1px solid #30363d;
+    color: #6b7280;
+    background: #fff;
+    border: 1px solid #e5e7eb;
+    border-radius: 20px;
+    padding: 3px 12px;
+    margin: 2px 0;
     white-space: nowrap;
+    box-shadow: 0 1px 4px rgba(0,0,0,.05);
   }
   .arrow-head {
     width: 0; height: 0;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 8px solid rgba(255,255,255,.2);
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 7px solid #d1d5db;
   }
 
-  /* ── KEY POINTS PANEL ── */
-  .key-section {
-    max-width: 960px;
-    margin: 0 auto 80px;
-    padding: 0 24px;
-  }
-  .section-header {
+  /* ── DIVIDER ── */
+  .divider {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 24px;
+    gap: 16px;
+    max-width: 700px;
+    margin: 48px auto 32px;
   }
-  .section-header-line {
-    flex: 1;
-    height: 1px;
-    background: linear-gradient(to right, #30363d, transparent);
-  }
-  .section-header-title {
-    font-size: 16px;
+  .divider-line { flex: 1; height: 1px; background: #e5e7eb; }
+  .divider-title {
+    font-size: 14px;
     font-weight: 700;
-    color: #c9d1d9;
+    color: #374151;
     white-space: nowrap;
   }
 
+  /* ── KEY CARDS ── */
   .key-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 16px;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    max-width: 700px;
+    margin: 0 auto;
   }
 
   .key-card {
-    background: #161b22;
-    border: 1px solid #30363d;
+    background: #fff;
+    border: 1.5px solid #f3f4f6;
     border-radius: 12px;
-    padding: 20px;
-    transition: border-color .3s;
-    animation: fadeInUp .5s ease both;
+    padding: 18px 20px;
+    box-shadow: 0 1px 6px rgba(0,0,0,.04);
+    transition: box-shadow .2s, border-color .2s;
+    animation: fadeUp .5s ease both;
   }
-  .key-card:hover { border-color: #58a6ff44; }
+  .key-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,.08); border-color: #e0e7ff; }
   .key-card:nth-child(1) { animation-delay: .1s; }
-  .key-card:nth-child(2) { animation-delay: .2s; }
-  .key-card:nth-child(3) { animation-delay: .3s; }
-  .key-card:nth-child(4) { animation-delay: .4s; }
-  .key-card:nth-child(5) { animation-delay: .5s; }
-  .key-card:nth-child(6) { animation-delay: .6s; }
+  .key-card:nth-child(2) { animation-delay: .18s; }
+  .key-card:nth-child(3) { animation-delay: .26s; }
+  .key-card:nth-child(4) { animation-delay: .34s; }
+  .key-card:nth-child(5) { animation-delay: .42s; }
+  .key-card:nth-child(6) { animation-delay: .50s; }
 
   .key-card-head {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 10px;
   }
   .key-card-icon {
-    width: 36px; height: 36px;
+    width: 34px; height: 34px;
     border-radius: 9px;
-    background: rgba(88,166,255,.12);
+    background: #f0f9ff;
     display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
+    font-size: 17px;
   }
-  .key-card-title {
-    font-size: 14px;
-    font-weight: 600;
-    color: #c9d1d9;
-  }
-  .key-card-body {
-    font-size: 13px;
-    color: #8b949e;
-    line-height: 1.7;
-  }
-  .warn-dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #f59e0b;
-    margin-right: 6px;
-    vertical-align: middle;
-  }
+  .key-card-title { font-size: 14px; font-weight: 600; color: #1f2937; }
+  .key-card-body { font-size: 13px; color: #6b7280; line-height: 1.7; }
 
-  /* ── WARNING BANNER ── */
-  .warn-banner {
-    max-width: 960px;
-    margin: 0 auto 60px;
-    padding: 0 24px;
-  }
+  /* ── WARN BOX ── */
   .warn-box {
-    background: rgba(245,158,11,.08);
-    border: 1px solid rgba(245,158,11,.25);
+    max-width: 700px;
+    margin: 32px auto 0;
+    background: #fffbeb;
+    border: 1.5px solid #fde68a;
     border-radius: 12px;
-    padding: 20px 24px;
+    padding: 18px 22px;
     display: flex;
-    gap: 16px;
+    gap: 14px;
     align-items: flex-start;
-    animation: fadeIn .5s ease .5s both;
+    animation: fadeUp .5s .5s ease both;
   }
-  .warn-emoji { font-size: 24px; flex-shrink: 0; margin-top: 2px; }
-  .warn-content h4 {
-    font-size: 14px;
-    font-weight: 700;
-    color: #fcd34d;
-    margin-bottom: 8px;
+  .warn-emoji { font-size: 22px; flex-shrink: 0; margin-top: 1px; }
+  .warn-body h4 { font-size: 13px; font-weight: 700; color: #92400e; margin-bottom: 6px; }
+  .warn-body p { font-size: 13px; color: #78350f; line-height: 1.7; }
+
+  /* ── DUTY GRID ── */
+  .duty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+    max-width: 700px;
+    margin: 0 auto;
   }
-  .warn-content p {
-    font-size: 13px;
-    color: #8b949e;
-    line-height: 1.7;
+  .duty-card {
+    background: #fff;
+    border: 1.5px solid #f3f4f6;
+    border-radius: 12px;
+    padding: 20px 12px;
+    text-align: center;
+    box-shadow: 0 1px 5px rgba(0,0,0,.04);
+    animation: fadeUp .5s ease both;
   }
+  .duty-card:nth-child(1) { animation-delay: .1s; border-color: #bfdbfe; }
+  .duty-card:nth-child(2) { animation-delay: .18s; border-color: #ddd6fe; }
+  .duty-card:nth-child(3) { animation-delay: .26s; border-color: #fde68a; }
+  .duty-card:nth-child(4) { animation-delay: .34s; border-color: #bbf7d0; }
+  .duty-icon { font-size: 26px; margin-bottom: 8px; }
+  .duty-name { font-size: 13px; font-weight: 700; color: #374151; margin-bottom: 4px; }
+  .duty-desc { font-size: 12px; color: #9ca3af; }
 
   /* ── FOOTER ── */
   footer {
     text-align: center;
-    padding: 32px 24px;
-    color: #484f58;
+    padding: 28px 24px;
+    color: #9ca3af;
     font-size: 12px;
-    border-top: 1px solid #21262d;
+    border-top: 1px solid #e5e7eb;
+    background: #fff;
   }
 
-  /* ── ANIMATIONS ── */
-  @keyframes fadeInUp {
-    from { opacity: 0; transform: translateY(20px); }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
     to   { opacity: 1; transform: translateY(0); }
   }
   @keyframes fadeIn {
@@ -354,57 +313,38 @@
     to   { opacity: 1; }
   }
 
-  /* ── RESPONSIVE ── */
-  @media (max-width: 600px) {
-    .step-card { flex-direction: column; gap: 16px; }
-    .step-icon { width: 44px; height: 44px; font-size: 20px; margin-top: 0; }
-    .stats { gap: 20px; }
+  @media (max-width: 580px) {
+    .step-card { flex-direction: column; }
+    .stats { gap: 24px; }
   }
 </style>
 </head>
 <body>
 
-<!-- HEADER -->
 <header>
   <div class="badge">业务指南 · Internal</div>
   <h1>漫剧结算全流程</h1>
   <p>从漫剧后台导入数据，经由数据中台汇聚，分销后台处理分销成本，最终由稿酬后台完成内容分成计算</p>
   <div class="stats">
-    <div class="stat-item">
-      <div class="stat-num">4</div>
-      <div class="stat-label">核心系统</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">6</div>
-      <div class="stat-label">基础维护项</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">2</div>
-      <div class="stat-label">账单导入轮次</div>
-    </div>
-    <div class="stat-item">
-      <div class="stat-num">4</div>
-      <div class="stat-label">业务职责</div>
-    </div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">核心系统</div></div>
+    <div class="stat-item"><div class="stat-num">6</div><div class="stat-label">基础维护项</div></div>
+    <div class="stat-item"><div class="stat-num">2</div><div class="stat-label">账单导入轮次</div></div>
+    <div class="stat-item"><div class="stat-num">4</div><div class="stat-label">业务职责</div></div>
   </div>
 </header>
 
-<!-- FLOW SECTION TITLE -->
-<div class="flow-container">
-  <p class="flow-section-title"><span>📊 结算数据流转路径</span></p>
+<div class="main">
+
+  <p class="section-label">📊 结算数据流转路径</p>
 
   <div class="flow-steps">
 
-    <!-- Step 1 -->
     <div class="step-card s1">
       <div class="step-icon">🎬</div>
       <div class="step-body">
-        <div class="step-number">STEP 01 · 数据来源</div>
+        <div class="step-num">STEP 01 · 数据来源</div>
         <div class="step-title">漫剧后台</div>
-        <div class="step-desc">
-          所有结算数据的起点。负责收入、成本等基础数据的录入，以及作品相关维度信息的维护。
-          基础信息维护的准确性直接决定最终分成结算的正确性。
-        </div>
+        <div class="step-desc">所有结算数据的起点。负责收入、成本等基础数据的录入，以及作品相关维度信息的维护。基础信息维护的准确性直接决定最终分成结算的正确性。</div>
         <div class="step-tags">
           <span class="tag">ID绑定关系</span>
           <span class="tag">作品类型</span>
@@ -416,22 +356,19 @@
       </div>
     </div>
 
-    <div class="arrow-connector">
+    <div class="arrow-wrap">
       <div class="arrow-line"></div>
-      <div class="arrow-label">数据导入 · 全量</div>
+      <div class="arrow-pill">数据导入 · 全量</div>
       <div class="arrow-line"></div>
       <div class="arrow-head"></div>
     </div>
 
-    <!-- Step 2 -->
     <div class="step-card s2">
       <div class="step-icon">🔄</div>
       <div class="step-body">
-        <div class="step-number">STEP 02 · 数据汇聚</div>
+        <div class="step-num">STEP 02 · 数据汇聚</div>
         <div class="step-title">数据中台</div>
-        <div class="step-desc">
-          接入漫剧后台全量数据，进行统一汇聚与处理。承上启下，为下游分销后台和稿酬后台提供标准化数据支撑。
-        </div>
+        <div class="step-desc">接入漫剧后台全量数据，进行统一汇聚与处理。承上启下，为下游分销后台和稿酬后台提供标准化数据支撑。</div>
         <div class="step-tags">
           <span class="tag">全量接入</span>
           <span class="tag">数据汇聚</span>
@@ -440,23 +377,19 @@
       </div>
     </div>
 
-    <div class="arrow-connector">
+    <div class="arrow-wrap">
       <div class="arrow-line"></div>
-      <div class="arrow-label">全量数据输出</div>
+      <div class="arrow-pill">全量数据输出</div>
       <div class="arrow-line"></div>
       <div class="arrow-head"></div>
     </div>
 
-    <!-- Step 3 -->
     <div class="step-card s3">
       <div class="step-icon">📦</div>
       <div class="step-body">
-        <div class="step-number">STEP 03 · 分销处理</div>
+        <div class="step-num">STEP 03 · 分销处理</div>
         <div class="step-title">分销后台</div>
-        <div class="step-desc">
-          接入数据中台输出的数据，处理并输出分销成本数据。
-          抖音账单需全量导入：一轮直接导入含分销ID的数据，二轮需补充分销ID为空的记录。
-        </div>
+        <div class="step-desc">接入数据中台输出的数据，处理并输出分销成本数据。抖音账单需全量导入：一轮直接导入含分销ID的数据，二轮需补充分销ID为空的记录。</div>
         <div class="step-tags">
           <span class="tag">一轮：直接全量导入</span>
           <span class="tag">二轮：补充分销ID</span>
@@ -465,22 +398,19 @@
       </div>
     </div>
 
-    <div class="arrow-connector">
+    <div class="arrow-wrap">
       <div class="arrow-line"></div>
-      <div class="arrow-label">整理汇总数据</div>
+      <div class="arrow-pill">整理汇总数据</div>
       <div class="arrow-line"></div>
       <div class="arrow-head"></div>
     </div>
 
-    <!-- Step 4 -->
     <div class="step-card s4">
       <div class="step-icon">✅</div>
       <div class="step-body">
-        <div class="step-number">STEP 04 · 结算完成</div>
+        <div class="step-num">STEP 04 · 结算完成</div>
         <div class="step-title">稿酬后台</div>
-        <div class="step-desc">
-          接收汇总整理后的完整数据，按照各维度的分成逻辑进行计算，完成最终内容分成结算。
-        </div>
+        <div class="step-desc">接收汇总整理后的完整数据，按照各维度的分成逻辑进行计算，完成最终内容分成结算。</div>
         <div class="step-tags">
           <span class="tag">分成计算</span>
           <span class="tag">结算输出</span>
@@ -490,131 +420,82 @@
     </div>
 
   </div>
-</div>
 
-<!-- WARNING BANNER -->
-<div class="warn-banner">
+  <!-- WARN -->
   <div class="warn-box">
     <div class="warn-emoji">⚠️</div>
-    <div class="warn-content">
+    <div class="warn-body">
       <h4>核心注意：抖音端原生ID & 内容中心漫剧ID 绑定关系</h4>
-      <p>此绑定关系务必准确无误。若绑定错误，将导致<strong style="color:#fcd34d;">结算主体错误</strong>和<strong style="color:#fcd34d;">分成数据错误</strong>，是整个结算流程中风险最高的基础维护项。</p>
+      <p>务必准确无误。若绑定错误，将导致<strong>结算主体错误</strong>和<strong>分成数据错误</strong>，是整个流程中风险最高的基础维护项。</p>
     </div>
   </div>
-</div>
 
-<!-- KEY POINTS -->
-<div class="key-section">
-  <div class="section-header">
-    <div class="section-header-line"></div>
-    <div class="section-header-title">🗂️ 漫剧后台 · 关键维护项</div>
-    <div class="section-header-line" style="background: linear-gradient(to left, #30363d, transparent);"></div>
+  <!-- KEY POINTS -->
+  <div class="divider">
+    <div class="divider-line"></div>
+    <div class="divider-title">🗂️ 漫剧后台 · 关键维护项</div>
+    <div class="divider-line"></div>
   </div>
 
   <div class="key-grid">
     <div class="key-card">
-      <div class="key-card-head">
-        <div class="key-card-icon">🔗</div>
-        <div class="key-card-title">ID 绑定关系</div>
-      </div>
-      <div class="key-card-body">
-        <span class="warn-dot"></span>抖音端原生ID ↔ 内容中心漫剧ID<br>
-        务必准确，错误将导致结算主体与分成数据双重错误
-      </div>
+      <div class="key-card-head"><div class="key-card-icon">🔗</div><div class="key-card-title">ID 绑定关系</div></div>
+      <div class="key-card-body">抖音端原生ID ↔ 内容中心漫剧ID，务必准确，错误将导致结算主体与分成数据双重错误</div>
     </div>
     <div class="key-card">
-      <div class="key-card-head">
-        <div class="key-card-icon">🎭</div>
-        <div class="key-card-title">作品类型</div>
-      </div>
-      <div class="key-card-body">
-        简易动画、动画短剧等<br>
-        不同作品类型对应不同的分成计算逻辑
-      </div>
+      <div class="key-card-head"><div class="key-card-icon">🎭</div><div class="key-card-title">作品类型</div></div>
+      <div class="key-card-body">简易动画、动画短剧等，不同作品类型对应不同的分成计算逻辑</div>
     </div>
     <div class="key-card">
-      <div class="key-card-head">
-        <div class="key-card-icon">🏢</div>
-        <div class="key-card-title">账号主体</div>
-      </div>
-      <div class="key-card-body">
-        我方端原生 / 对方端原生等<br>
-        直接影响分成计算逻辑的核心维度
-      </div>
+      <div class="key-card-head"><div class="key-card-icon">🏢</div><div class="key-card-title">账号主体</div></div>
+      <div class="key-card-body">我方端原生 / 对方端原生等，直接影响分成计算逻辑的核心维度</div>
     </div>
     <div class="key-card">
-      <div class="key-card-head">
-        <div class="key-card-icon">📺</div>
-        <div class="key-card-title">收入渠道</div>
-      </div>
-      <div class="key-card-body">
-        抖音 / 红果 等渠道来源<br>
-        不同渠道对应不同的分成计算规则
-      </div>
+      <div class="key-card-head"><div class="key-card-icon">📺</div><div class="key-card-title">收入渠道</div></div>
+      <div class="key-card-body">抖音 / 红果等渠道来源，不同渠道对应不同的分成计算规则</div>
     </div>
     <div class="key-card">
-      <div class="key-card-head">
-        <div class="key-card-icon">👤</div>
-        <div class="key-card-title">机构类型</div>
-      </div>
-      <div class="key-card-body">
-        机构 / 个人 两类<br>
-        影响分成计算逻辑的基础属性维度
-      </div>
+      <div class="key-card-head"><div class="key-card-icon">👤</div><div class="key-card-title">机构类型</div></div>
+      <div class="key-card-body">机构 / 个人两类，影响分成计算逻辑的基础属性维度</div>
     </div>
     <div class="key-card">
-      <div class="key-card-head">
-        <div class="key-card-icon">🚫</div>
-        <div class="key-card-title">结算状态</div>
-      </div>
-      <div class="key-card-body">
-        永久不结算及其具体原因<br>
-        需明确标记，避免错误触发分成计算
-      </div>
+      <div class="key-card-head"><div class="key-card-icon">🚫</div><div class="key-card-title">结算状态</div></div>
+      <div class="key-card-body">永久不结算及其具体原因，需明确标记，避免错误触发分成计算</div>
     </div>
   </div>
+
+  <!-- DUTY -->
+  <div class="divider" style="margin-top:48px;">
+    <div class="divider-line"></div>
+    <div class="divider-title">👤 结算专员 · 业务职责</div>
+    <div class="divider-line"></div>
+  </div>
+
+  <div class="duty-grid">
+    <div class="duty-card">
+      <div class="duty-icon">🗃️</div>
+      <div class="duty-name">数据问题</div>
+      <div class="duty-desc">需要自行处理</div>
+    </div>
+    <div class="duty-card">
+      <div class="duty-icon">⚙️</div>
+      <div class="duty-name">系统问题</div>
+      <div class="duty-desc">需要推进解决</div>
+    </div>
+    <div class="duty-card">
+      <div class="duty-icon">📋</div>
+      <div class="duty-name">合同问题</div>
+      <div class="duty-desc">需要反馈跟进</div>
+    </div>
+    <div class="duty-card">
+      <div class="duty-icon">🤝</div>
+      <div class="duty-name">其他问题</div>
+      <div class="duty-desc">全面对接协调</div>
+    </div>
+  </div>
+
 </div>
 
-<!-- RESPONSIBILITY -->
-<div class="key-section" style="margin-bottom: 40px;">
-  <div class="section-header">
-    <div class="section-header-line"></div>
-    <div class="section-header-title">👤 结算专员 · 业务职责</div>
-    <div class="section-header-line" style="background: linear-gradient(to left, #30363d, transparent);"></div>
-  </div>
-  <div class="key-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
-    <div class="key-card" style="border-color: rgba(59,130,246,.2);">
-      <div class="key-card-body" style="text-align:center; padding: 8px 0;">
-        <div style="font-size:28px; margin-bottom:8px;">🗃️</div>
-        <div style="font-weight:600; color:#93c5fd; margin-bottom:4px;">数据问题</div>
-        <div>需要自行处理</div>
-      </div>
-    </div>
-    <div class="key-card" style="border-color: rgba(168,85,247,.2);">
-      <div class="key-card-body" style="text-align:center; padding: 8px 0;">
-        <div style="font-size:28px; margin-bottom:8px;">⚙️</div>
-        <div style="font-weight:600; color:#d8b4fe; margin-bottom:4px;">系统问题</div>
-        <div>需要推进解决</div>
-      </div>
-    </div>
-    <div class="key-card" style="border-color: rgba(245,158,11,.2);">
-      <div class="key-card-body" style="text-align:center; padding: 8px 0;">
-        <div style="font-size:28px; margin-bottom:8px;">📋</div>
-        <div style="font-weight:600; color:#fcd34d; margin-bottom:4px;">合同问题</div>
-        <div>需要反馈跟进</div>
-      </div>
-    </div>
-    <div class="key-card" style="border-color: rgba(34,197,94,.2);">
-      <div class="key-card-body" style="text-align:center; padding: 8px 0;">
-        <div style="font-size:28px; margin-bottom:8px;">🤝</div>
-        <div style="font-weight:600; color:#86efac; margin-bottom:4px;">其他问题</div>
-        <div>全面对接协调</div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FOOTER -->
 <footer>
   Generated by 小D · DataClaw &nbsp;·&nbsp; 漫剧结算操作指南 · 2026-03-17
 </footer>
